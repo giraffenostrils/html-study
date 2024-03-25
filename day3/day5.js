@@ -36,16 +36,29 @@ console.log(sum1(1));
 
 
 const sum2 = (a,b=2) => {
-    return a+b
+    return a+b;
 };
 
 const diff2 =(a,b=2) =>{
-    return a-b
+    return a-b;
 };
 
+console.log(diff2(sum2(diff2(sum2(3)),10,4)));
+// console.log(list[0](21));
 
+const multi2 = (a,b=2)=> a*b;
+const division2 = (a,b=2) => a/b;
 
+const list = [sum2,diff2,multi2,division2];
+let total = 0;
+for (let index = 0; index < list.length; index++) {
+        total +=list[index](index,10);        
+}
 
-console.log(diff2(sum2(diff2(sum2(3)),10,4))) ;
+console.log(total);
+
+const listSample = [sum2,diff2,multi2,division2,(a) => a*a];
+
+const [sum3,diff3,multi3,division3,pow3] = listSample;
 
 
