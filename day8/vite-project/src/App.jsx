@@ -128,11 +128,12 @@ const teams = [
     assist: 858,
   },
 ];
- const keys =[...Object.keys(teams[0])];
+const [tmp,setTmp]=useState([...teams]);
+ const keys =[...Object.keys(teams[1])];
 function App() {
   const[serch,setSerch]=useState("");
   const[serchKey,setSerchKey]=useState("rank");
-  console.log(Object.keys(teams[0]));
+  console.log(keys);
 
   return (
   
@@ -151,6 +152,7 @@ function App() {
        />
     <table>
       <thead>
+      <tr>
         <th>rank</th>
         <th>name</th>
         <th>win</th>
@@ -161,9 +163,10 @@ function App() {
         <th>kill</th>
         <th>death</th>
         <th>assist</th>
+      </tr>  
       </thead>
       <tbody>
-        {teams
+        {tmp
         .filter((el)=>el[serchKey].toString().includes(serch))
         .map((el,i,arr)=>(    
            <tr key={i}>
