@@ -1,8 +1,8 @@
 import { useRecoilState } from "recoil";
-import { countState ,countLogState } from "../store/CountState";
+import { countState, countLogState } from "../store/CountState";
 
 const ChangeCount = () => {
-  const [count, setCount] = useRecoilState(CountStateState);
+  const [count, setCount] = useRecoilState(countState);
   const [logs, setLogs] = useRecoilState(countLogState);
   const onSubmit = (e) => {
     e.preventDefault();
